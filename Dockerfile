@@ -1,4 +1,4 @@
-from python3:latest
+from python:3.9
 workdir /app
 copy requirements.txt /app
 copy gramenshilpo /app
