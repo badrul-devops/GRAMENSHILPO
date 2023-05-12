@@ -1,15 +1,14 @@
-from python:3.9
-
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+from ubuntu
 
 workdir /app
 copy requirements.txt /app
-copy gramenshilpo /app
+copy gramenshilpo/ /app
 
-RUN pip install -r requirements.txt && \
-
-workdir /app/gramenshilpo
+RUN apt-get update && apt-get install -y python3 python3-pip && \
+virtualenv -p python3 venv && \
+. venv/bin/activate && \
+pip install -r requirements.txt && \
+cd gramenshilpo
 
 EXPOSE 8000
 
