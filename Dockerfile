@@ -8,7 +8,8 @@ copy requirements.txt /app
 copy gramenshilpo /app
 
 RUN pip install -r requirements.txt && \
-cd gramenshilpo
+
+workdir /app/gramenshilpo
 
 EXPOSE 8000
 
