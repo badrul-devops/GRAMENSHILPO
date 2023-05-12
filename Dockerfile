@@ -1,10 +1,13 @@
-from ubuntu
+from python3:latest
 workdir /app
 copy requirements.txt /app
 copy gramenshilpo /app
-RUN apt-get update && apt-get install -y python3 python3-pip && \
+
+RUN virtualenv -p python3 env && \
+source env/bin/activate && \
 pip3 install -r requirements.txt && \
 cd gramenshilpo
 
-ENTRYPOINT ["python3"]
+EXPOSE 8000
+
 CMD ["manage.py", "runserver", "0.0.0.0:8000"]
