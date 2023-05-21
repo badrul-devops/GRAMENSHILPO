@@ -1,14 +1,8 @@
-from ubuntu
+FROM python:3
+RUN pip install django==4.2.1
 
-workdir /app
-copy requirements.txt /app
-copy gramenshilpo /app
+COPY . . 
 
-RUN apt-get update && apt-get install -y python3 python3-pip && \
-pip install -r requirements.txt && \
-cd gramenshilpo
 
-ENTRYPOINT ["python3"]
 
-CMD ["manage.py", "runserver", "0.0.0.0:8000"]
-EXPOSE 8000
+CMD ["python","manage.py","runserver","0.0.0.0:8000"]
