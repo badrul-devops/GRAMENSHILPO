@@ -1,6 +1,8 @@
 FROM python:3
 RUN pip install django==4.2.1
 
+WORKDIR /app
+
 COPY . . 
 
 
