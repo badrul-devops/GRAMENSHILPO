@@ -7,7 +7,9 @@
   </head>
   <body>
     <div class="container">
-      <form>
+       
+        <form action="" method="POST">
+        {% csrf_token %} 
         <h2>Registration Form</h2>
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" required>
@@ -18,6 +20,7 @@
         <label for="confirm-password">Confirm Password:</label>
         <input type="password" id="confirm-password" name="confirm-password" required>
         <button type="submit">Register</button>
+        <a href="{% url 'login' %}" >I have already account</a>
       </form>
     </div>
   </body>
